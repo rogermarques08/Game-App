@@ -10,7 +10,25 @@ function Main() {
   }, [setGames]);
 
   return (
-    <p>Main</p>
+    <div>
+      <h1>Games</h1>
+      <main>
+        {games?.map((game, index) => (
+          <div key={ index }>
+            <img
+              src={ game.background_image }
+              alt={ game.name }
+              style={ { maxWidth: '200px' } }
+            />
+            <h2>{game.name}</h2>
+            <p>{game.rating}</p>
+            {game.genres.slice(0, 2).map((genre) => (
+              <p key={ genre.id }>{genre.name}</p>
+            ))}
+          </div>
+        ))}
+      </main>
+    </div>
   );
 }
 

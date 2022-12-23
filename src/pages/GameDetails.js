@@ -11,6 +11,7 @@ function GameDetails() {
   const [isLoading, setIsLoading] = useState(true);
   const [screenShots, setScreenShots] = useState([]);
   const [platforms, setPlatforms] = useState([]);
+  const [inList, setInList] = useState(false);
 
   const { id } = useParams();
 
@@ -29,6 +30,26 @@ function GameDetails() {
     }
   };
 
+  const addToList = () => {
+    const getLocalStorage = JSON.parse(localStorage.getItem('gameList'));
+
+    if (!getLocalStorage) {
+      localStorage.setItem('gameList', JSON.stringify([game]));
+    } else {
+      const isInList = getLocalStorage.some((item) => item.id === game.id);
+
+      if (isInList) {
+        const filterdList = getLocalStorage.filter((item) => item.id !== game.id);
+        localStorage.setItem('gameList', JSON
+          .stringify(filterdList));
+        setInList(false);
+      } else {
+        localStorage.setItem('gameList', JSON.stringify([...getLocalStorage, game]));
+        setInList(true);
+      }
+    }
+  };
+
   useEffect(() => {
     const gameUrl = `https://api.rawg.io/api/games/${id}?token&key=e338cac79cd8470c8b3c41797664aeb1`;
     const screenShotsUrl = `https://api.rawg.io/api/games/${id}/screenshots?token&key=e338cac79cd8470c8b3c41797664aeb1`;
@@ -42,6 +63,10 @@ function GameDetails() {
     || item.platform.name === 'PlayStation'
     || item.platform.name === 'Nintendo');
       setPlatforms(getPlataforms);
+
+      const getLocalStorage = JSON.parse(localStorage.getItem('gameList'));
+      const isInList = getLocalStorage?.some((item) => item.id === gameData.id);
+      setInList(isInList);
     });
 
     getData(screenShotsUrl).then((gameScreen) => {
@@ -61,7 +86,16 @@ function GameDetails() {
           { getIcon(platform.platform.name)}
         </span>
       ))}
-      <p>{game.developers[0].name}</p>
+      <div>
+        <button
+          type="button"
+          onClick={ addToList }
+        >
+          {inList ? 'Remove game to list' : 'Add game to list' }
+
+        </button>
+      </div>
+      <p>{game.developers?.[0].name}</p>
       {game.description_raw}
       <Carousel
         emulateTouch

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
 import getData from '../helpers/getData';
 
@@ -62,6 +63,7 @@ function Main() {
 
   return (
     <div>
+      <Header />
       <h1>Games</h1>
       <SearchBar
         search={ search }

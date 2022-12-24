@@ -1,12 +1,38 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import SearchBar from '../components/SearchBar';
 import getData from '../helpers/getData';
 
 function Main() {
   const [games, setGames] = useState();
-  const [loading, setIsLoading] = useState(true);
+  const [loading, setIsLoading] = useState(false);
   const [previous, setPrevious] = useState(null);
   const [next, setNext] = useState(null);
+  const [search, setSearch] = useState('');
+
+  const handleChange = ({ target }) => {
+    const { value } = target;
+    setSearch(value);
+  };
+
+  const searchGame = () => {
+    const slug = search.replace(/ /g, '-').toLowerCase();
+    const url = `https://api.rawg.io/api/games?search=${slug}?token&key=e338cac79cd8470c8b3c41797664aeb1`;
+    setIsLoading(true);
+
+    getData(url).then((searchResult) => {
+      if (searchResult.results[0].name === 'Toren') {
+        setSearch('');
+        setIsLoading(false);
+        return global.alert('Nenhum jogo foi encontrado!');
+      }
+      setGames(searchResult.results);
+      setPrevious(searchResult.previous);
+      setNext(searchResult.next);
+      setSearch('');
+      setIsLoading(false);
+    });
+  };
 
   const newGames = (endpoint) => {
     setIsLoading(true);
@@ -17,14 +43,19 @@ function Main() {
     }).then(() => setIsLoading(false));
   };
 
-  useEffect(() => {
+  const getGames = () => {
+    setIsLoading(true);
     const url = 'https://api.rawg.io/api/games?token&key=e338cac79cd8470c8b3c41797664aeb1';
     getData(url).then((gameData) => {
       setGames(gameData.results);
-      setIsLoading(false);
       setPrevious(gameData.previous);
       setNext(gameData.next);
+      setIsLoading(false);
     });
+  };
+
+  useEffect(() => {
+    getGames();
   }, [setGames]);
 
   if (loading) return <p>carregando...</p>;
@@ -32,6 +63,12 @@ function Main() {
   return (
     <div>
       <h1>Games</h1>
+      <SearchBar
+        search={ search }
+        handleChange={ handleChange }
+        searchGame={ searchGame }
+        getGames={ getGames }
+      />
       <main>
         <div>
           {games?.map((game, index) => (

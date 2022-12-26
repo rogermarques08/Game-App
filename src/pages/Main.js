@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import CardGame from '../components/CardGame';
 import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
 import getData from '../helpers/getData';
@@ -72,24 +72,7 @@ function Main() {
         getGames={ getGames }
       />
       <main>
-        <div>
-          {games?.map((game, index) => (
-            <Link to={ `/game/${game.id}` } key={ index }>
-              <div>
-                <img
-                  src={ game.background_image }
-                  alt={ game.name }
-                  style={ { maxWidth: '200px' } }
-                />
-                <h2>{game.name}</h2>
-                <p>{game.rating}</p>
-                {game.genres.slice(0, 2).map((genre) => (
-                  <p key={ genre.id }>{genre.name}</p>
-                ))}
-              </div>
-            </Link>
-          ))}
-        </div>
+        <CardGame games={ games } />
         <div>
           <button
             type="button"

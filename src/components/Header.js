@@ -1,24 +1,31 @@
-import { useEffect, useState } from 'react';
+import { FaListUl } from 'react-icons/fa';
 import { Link, useHistory } from 'react-router-dom';
+import '../style/Header.css';
 
 function Header() {
-  const [userInfos, setUserInfos] = useState({});
+  // const [userInfos, setUserInfos] = useState({});
 
   const history = useHistory();
 
-  useEffect(() => {
-    const getUserData = JSON.parse(localStorage.getItem('userEmail'));
-    setUserInfos(getUserData);
-  }, []);
+  // useEffect(() => {
+  //   const getUserData = JSON.parse(localStorage.getItem('userEmail'));
+  //   setUserInfos(getUserData);
+  // }, []);
 
   return (
-    <header>
+    <header className="header-container">
       <Link to="/games">
         <h1>Games APP</h1>
       </Link>
-      <p>{userInfos.userEmail}</p>
-      <img src={ userInfos.userPicture } alt="user" />
-      <button type="button" onClick={ () => history.push('/list') }>Game List</button>
+      {/* <div className="user-infos">
+        <p>{userInfos.userEmail}</p>
+        <img src={ userInfos.userPicture } alt="user" />
+      </div> */}
+      <button type="button" onClick={ () => history.push('/list') }>
+        <FaListUl />
+        {' '}
+        Game List
+      </button>
     </header>
   );
 }

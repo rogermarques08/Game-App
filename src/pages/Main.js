@@ -59,8 +59,6 @@ function Main() {
     getGames();
   }, [setGames]);
 
-  if (loading) return <p>carregando...</p>;
-
   return (
     <div>
       <Header />
@@ -71,25 +69,29 @@ function Main() {
         searchGame={ searchGame }
         getGames={ getGames }
       />
-      <main>
-        <CardGame games={ games } />
-        <div>
-          <button
-            type="button"
-            disabled={ previous === null }
-            onClick={ () => newGames(previous) }
-          >
-            Previous
-          </button>
-          <button
-            type="button"
-            disabled={ next === null }
-            onClick={ () => newGames(next) }
-          >
-            Next
-          </button>
-        </div>
-      </main>
+      {loading ? (
+        <p>carregando...</p>
+      ) : (
+        <main>
+          <CardGame games={ games } />
+          <div>
+            <button
+              type="button"
+              disabled={ previous === null }
+              onClick={ () => newGames(previous) }
+            >
+              Previous
+            </button>
+            <button
+              type="button"
+              disabled={ next === null }
+              onClick={ () => newGames(next) }
+            >
+              Next
+            </button>
+          </div>
+        </main>
+      )}
     </div>
   );
 }

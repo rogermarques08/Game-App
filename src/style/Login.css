@@ -36,7 +36,7 @@
     font-weight: 900;
     background-color: #292929;
     cursor: pointer;
-}
+} 
 
 .form-login button:disabled {
     opacity: 0.3;

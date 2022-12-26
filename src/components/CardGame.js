@@ -24,8 +24,12 @@ function CardGame({ games }) {
   );
 }
 
+CardGame.defaultProps = {
+  games: undefined,
+};
+
 CardGame.propTypes = {
-  games: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  games: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
 export default CardGame;

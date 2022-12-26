@@ -16,6 +16,14 @@ function Login({ history }) {
   };
 
   useEffect(() => {
+    const getEmailUser = JSON.parse(localStorage.getItem('userEmail'));
+
+    if (getEmailUser !== null) {
+      history.push('/games');
+    }
+  });
+
+  useEffect(() => {
     const regex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     const passwordLength = 7;
     const emailInput = regex
@@ -25,6 +33,10 @@ function Login({ history }) {
   }, [userData]);
 
   const saveUserData = () => {
+    localStorage.setItem('userEmail', JSON.stringify({
+      userEmail: userData.email,
+      userPicture: gravatar.url(userData.email, { protocol: 'https' }),
+    }));
     history.push('/games');
   };
 

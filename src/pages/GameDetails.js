@@ -4,6 +4,7 @@ import { SiNintendoswitch } from 'react-icons/si';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { useParams } from 'react-router-dom';
+import Header from '../components/Header';
 import getData from '../helpers/getData';
 
 function GameDetails() {
@@ -79,8 +80,10 @@ function GameDetails() {
 
   return (
     <div>
+      <Header />
       <img src={ game.background_image } alt={ game.name } style={ { width: '100%' } } />
       <h1>{game.name}</h1>
+      <h2>{game.developers?.[0].name}</h2>
       {platforms.map((platform) => (
         <span key={ platform.platform.name }>
           { getIcon(platform.platform.name)}
@@ -95,23 +98,64 @@ function GameDetails() {
 
         </button>
       </div>
-      <p>{game.developers?.[0].name}</p>
-      {game.description_raw}
-      <Carousel
-        emulateTouch
-        infiniteLoop
-        swipeable
-        showStatus={ false }
-        showArrows={ false }
-        autoPlay
-      >
-        {screenShots.map((screenShot) => (
-          <div key={ screenShot.image }>
-            <img src={ screenShot.image } alt="game screenShot" />
-          </div>
-        ))}
-      </Carousel>
-      {/* Carousel : https://www.npmjs.com/package/react-responsive-carousel?activeTab=readme */}
+      <div>
+        <h3>Game Info</h3>
+        <p>
+          Metacritic :
+          {' '}
+          {game.metacritic}
+        </p>
+        <p>
+          Release date of :
+          {' '}
+          {game.released}
+
+        </p>
+        <p>
+          Playtime :
+          {' '}
+          {game.playtime}
+          h
+        </p>
+        <p>
+          Achievements :
+          {' '}
+          {game.parent_achievements_count}
+        </p>
+        <p>
+          Genres:
+          {' '}
+          {game.genres?.map((item) => item.name).join()}
+        </p>
+        <p>
+          Classification :
+          {' '}
+          {game.esrb_rating?.name}
+
+        </p>
+      </div>
+      <div>
+        <h3>Description</h3>
+        {game.description_raw}
+      </div>
+      <div>
+        <h3>Media</h3>
+        <Carousel
+          emulateTouch
+          infiniteLoop
+          swipeable
+          showStatus={ false }
+          showArrows={ false }
+          autoPlay
+        >
+          {screenShots.map((screenShot) => (
+            <div key={ screenShot.image }>
+              <img src={ screenShot.image } alt="game screenShot" />
+            </div>
+          ))}
+        </Carousel>
+        {/* Carousel : https://www.npmjs.com/package/react-responsive-carousel?activeTab=readme */}
+      </div>
     </div>
   );
 }

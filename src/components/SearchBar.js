@@ -4,7 +4,7 @@ function SearchBar({ search, handleChange, searchGame, getGames }) {
   return (
     <div>
       <button type="button" onClick={ getGames }>
-        Home
+        All Games
       </button>
       <input
         type="text"

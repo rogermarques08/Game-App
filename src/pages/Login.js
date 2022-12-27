@@ -42,7 +42,7 @@ function Login({ history }) {
   };
 
   return (
-    <form className="form-login-container">
+    <form className="form-login-container scale-up-center">
       <div className="form-login">
         <h1>Games App</h1>
         <input

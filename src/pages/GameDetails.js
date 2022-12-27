@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { FaPlaystation, FaWindows, FaXbox } from 'react-icons/fa';
+import { BiArrowBack } from 'react-icons/bi';
+import { FaListUl, FaPlaystation, FaWindows, FaXbox } from 'react-icons/fa';
 import { SiNintendoswitch } from 'react-icons/si';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import getData from '../helpers/getData';
 import '../style/GameDetails.css';
 
@@ -15,6 +16,7 @@ function GameDetails() {
   const [inList, setInList] = useState(false);
 
   const { id } = useParams();
+  const history = useHistory();
 
   const getIcon = (platform) => {
     switch (platform) {
@@ -76,10 +78,40 @@ function GameDetails() {
     });
   }, [id]);
 
-  if (isLoading) return <h1>carregando...</h1>;
+  if (isLoading) {
+    return (
+      <div className="loader-container">
+        <div className="loader">
+          <svg viewBox="0 0 80 80">
+            <circle id="test" cx="40" cy="40" r="32" />
+          </svg>
+        </div>
+
+        <div className="loader triangle">
+          <svg viewBox="0 0 86 80">
+            <polygon points="43 8 79 72 7 72" />
+          </svg>
+        </div>
+
+        <div className="loader">
+          <svg viewBox="0 0 80 80">
+            <rect x="8" y="8" width="64" height="64" />
+          </svg>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <>
+    <div className="scale-up-center">
+      <header className="header-details">
+        <span><BiArrowBack onClick={ () => history.push('/games') } /></span>
+        <button type="button" onClick={ () => history.push('/list') }>
+          <FaListUl />
+          {' '}
+          Game List
+        </button>
+      </header>
       <img src={ game.background_image } alt={ game.name } className="game-img" />
       <div className="game-details-container">
         <div className="game-id">
@@ -96,6 +128,8 @@ function GameDetails() {
             <button
               type="button"
               onClick={ addToList }
+              style={ inList
+                ? { border: 'solid 1px red' } : { border: 'solid 1px green' } }
             >
               {inList ? 'Remove game to list' : 'Add game to list' }
 
@@ -164,7 +198,7 @@ function GameDetails() {
           {/* Carousel : https://www.npmjs.com/package/react-responsive-carousel?activeTab=readme */}
         </div>
       </div>
-    </>
+    </div>
 
   );
 }

@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import CardGame from '../components/CardGame';
 import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
 import getData from '../helpers/getData';
+import '../style/Main.css';
 
 function Main() {
   const [games, setGames] = useState();
@@ -59,6 +61,30 @@ function Main() {
     getGames();
   }, [setGames]);
 
+  if (loading) {
+    return (
+      <div className="loader-container">
+        <div className="loader">
+          <svg viewBox="0 0 80 80">
+            <circle id="test" cx="40" cy="40" r="32" />
+          </svg>
+        </div>
+
+        <div className="loader triangle">
+          <svg viewBox="0 0 86 80">
+            <polygon points="43 8 79 72 7 72" />
+          </svg>
+        </div>
+
+        <div className="loader">
+          <svg viewBox="0 0 80 80">
+            <rect x="8" y="8" width="64" height="64" />
+          </svg>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
       <Header />
@@ -68,29 +94,25 @@ function Main() {
         searchGame={ searchGame }
         getGames={ getGames }
       />
-      {loading ? (
-        <p>carregando...</p>
-      ) : (
-        <main>
-          <CardGame games={ games } />
-          <div>
-            <button
-              type="button"
-              disabled={ previous === null }
-              onClick={ () => newGames(previous) }
-            >
-              Previous
-            </button>
-            <button
-              type="button"
-              disabled={ next === null }
-              onClick={ () => newGames(next) }
-            >
-              Next
-            </button>
-          </div>
-        </main>
-      )}
+      <main>
+        <CardGame games={ games } />
+        <div className="buttons-container">
+          <button
+            type="button"
+            disabled={ previous === null }
+            onClick={ () => newGames(previous) }
+          >
+            <AiOutlineArrowLeft />
+          </button>
+          <button
+            type="button"
+            disabled={ next === null }
+            onClick={ () => newGames(next) }
+          >
+            <AiOutlineArrowRight />
+          </button>
+        </div>
+      </main>
     </div>
   );
 }

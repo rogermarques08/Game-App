@@ -62,7 +62,6 @@ function Main() {
   return (
     <div>
       <Header />
-      <h1>Games</h1>
       <SearchBar
         search={ search }
         handleChange={ handleChange }

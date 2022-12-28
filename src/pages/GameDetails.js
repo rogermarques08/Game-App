@@ -18,6 +18,10 @@ function GameDetails() {
   const { id } = useParams();
   const history = useHistory();
 
+  const seeAchievements = () => {
+    history.push(`/achievements/${id}`);
+  };
+
   const getIcon = (platform) => {
     switch (platform) {
     case 'Xbox':
@@ -156,11 +160,20 @@ function GameDetails() {
             {game.playtime}
             h
           </p>
-          <p>
-            Achievements :
-            {' '}
-            {game.parent_achievements_count}
-          </p>
+          <div>
+            <p>
+              Achievements :
+              {' '}
+              {game.parent_achievements_count}
+            </p>
+            <button
+              type="button"
+              onClick={ seeAchievements }
+            >
+              view all achievements
+
+            </button>
+          </div>
           <p>
             Genres:
             {' '}
@@ -170,7 +183,6 @@ function GameDetails() {
             Classification :
             {' '}
             {game.esrb_rating?.name}
-
           </p>
         </div>
         <hr />
@@ -178,8 +190,8 @@ function GameDetails() {
           <h3>Description</h3>
           {game.description_raw}
         </div>
+        <hr />
         <div>
-          <hr />
           <h3>Media</h3>
           <Carousel
             emulateTouch

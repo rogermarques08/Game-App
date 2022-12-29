@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import logo from '../style/images/logo.png';
 import '../style/Login.css';
 
 const gravatar = require('gravatar');
@@ -44,27 +45,28 @@ function Login({ history }) {
   return (
     <form className="form-login-container scale-up-center">
       <div className="form-login">
-        <h1>Games App</h1>
-        <input
-          type="text"
-          name="email"
-          placeholder="email"
-          onChange={ handleChange }
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="password"
-          onChange={ handleChange }
-        />
-        <button
-          type="button"
-          onClick={ saveUserData }
-          disabled={ isDisabled }
-        >
-          Login
-        </button>
-
+        <img src={ logo } alt="logo" />
+        <div className="inputs-container">
+          <input
+            type="text"
+            name="email"
+            placeholder="email"
+            onChange={ handleChange }
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="password"
+            onChange={ handleChange }
+          />
+          <button
+            type="button"
+            onClick={ saveUserData }
+            disabled={ isDisabled }
+          >
+            Login
+          </button>
+        </div>
       </div>
     </form>
   );

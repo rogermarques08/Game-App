@@ -1,6 +1,7 @@
 import { FaListUl } from 'react-icons/fa';
 import { Link, useHistory } from 'react-router-dom';
 import '../style/Header.css';
+import logo from '../style/images/logo.png';
 
 function Header() {
   // const [userInfos, setUserInfos] = useState({});
@@ -15,7 +16,7 @@ function Header() {
   return (
     <header className="header-container">
       <Link to="/games">
-        <h1>Games APP</h1>
+        <img src={ logo } alt="logo" className="bounce-in-top" />
       </Link>
       {/* <div className="user-infos">
         <p>{userInfos.userEmail}</p>

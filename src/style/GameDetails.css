@@ -5,15 +5,16 @@
 .header-details {
     display: flex;
     justify-content: space-between;
-    width: 93vw;
-    padding: 10px;
+    width: 100%;
     cursor: pointer;
     position: absolute;
+    margin-top: 10px;
 }
 
 .header-details span {
     font-size: 25px;
     color: gray;
+    margin-left: 10px;
 }
 
 .header-details button {
@@ -22,6 +23,11 @@
     border-radius: 8px;
     cursor: pointer;
     background-color: transparent;
+    margin-right: 10px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    gap:5px;
 }
 
 .game-img{
@@ -64,9 +70,19 @@
     border: solid 1px #3a3a3a;
 }
 
+.acvmts-btn {
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 900;
+    border: solid 1px #4e4e4e;
+    cursor: pointer;
+}
+
 .scale-up-center {
-	-webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	-webkit-animation: scale-up-center 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-center 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 /* ----------------------------------------------

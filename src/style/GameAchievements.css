@@ -1,0 +1,41 @@
+.achievements-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.achievements-container h1{
+    margin: 10px 0;
+}
+
+.achievements-list {
+    list-style-type: none;
+    padding: 15px;
+    margin: 0;
+}
+
+.achievements-list li {
+    display: flex;
+    align-items: center;
+    gap:15px;
+    font-size: 14px;
+    border-bottom: solid 1px gray;
+}
+
+.achievements-list img {
+    height: 60px;
+    width: 60px;
+}
+
+.acvmts-title {
+    font-weight: 900;
+}
+
+.desc {
+    color: rgba(245, 245, 245, 0.6);
+    margin-top: -10px;
+}
+
+.percent {
+    color: rgba(245, 245, 245, 0.6);
+}

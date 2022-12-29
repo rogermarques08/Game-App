@@ -169,8 +169,9 @@ function GameDetails() {
             <button
               type="button"
               onClick={ seeAchievements }
+              className="acvmts-btn"
             >
-              view all achievements
+              View all achievements
 
             </button>
           </div>

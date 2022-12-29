@@ -20,6 +20,10 @@ main {
     border-radius: 10px;
 }
 
+.buttons-container button:disabled {
+ opacity: 0.4;
+}
+
 .buttons-container button:hover {
     cursor: pointer;
     background-color: #23252c;

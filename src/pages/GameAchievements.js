@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
-import { useParams } from 'react-router-dom';
+import { BiArrowBack } from 'react-icons/bi';
+import { FaListUl } from 'react-icons/fa';
+import { useHistory, useParams } from 'react-router-dom';
 import getData from '../helpers/getData';
+import '../style/GameAchievements.css';
 
 function GameAchievements() {
   const [achievements, setAchievements] = useState([]);
@@ -10,6 +13,7 @@ function GameAchievements() {
   const [next, setNext] = useState(null);
 
   const { id } = useParams();
+  const history = useHistory();
 
   const newGames = (endpoint) => {
     setIsLoading(true);
@@ -34,16 +38,27 @@ function GameAchievements() {
   if (isLoading) return <p>carregando...</p>;
 
   return (
-    <div>
-      <h1>Achievements</h1>
-      <ul>
+    <div className="achievements-container">
+      <header className="header-details" style={ { position: 'unset' } }>
+        <span><BiArrowBack onClick={ () => history.push(`/game/${id}`) } /></span>
+        <button type="button" onClick={ () => history.push('/list') }>
+          <FaListUl />
+          {' '}
+          Game List
+        </button>
+      </header>
+      <h1>Achieviments</h1>
+      <ul className="achievements-list">
         {achievements.map((item) => (
-          <li key={ item.id }>
+          <li key={ item.id } className="scale-up-center">
             <img src={ item.image } alt={ item.name } />
-            <p>{item.name}</p>
-            <p>{item.description}</p>
-            <p>{`${item.percent}%`}</p>
+            <div>
+              <p className="acvmts-title">{item.name}</p>
+              <p className="desc">{item.description}</p>
+              <p className="percent">{`${item.percent}% of players unlock`}</p>
+            </div>
           </li>
+
         ))}
       </ul>
       <div className="buttons-container">

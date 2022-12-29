@@ -1,5 +1,10 @@
 .game-details-container {
     padding: 15px;
+    color: rgba(245, 245, 245, 0.6);
+}
+
+.game-details-container h3{
+    color:  white;
 }
 
 .header-details {
@@ -13,13 +18,13 @@
 
 .header-details span {
     font-size: 25px;
-    color: gray;
+    color: #004AAD;
     margin-left: 10px;
 }
 
 .header-details button {
-    border: solid 1px gray;
-    color: gray;
+    border: solid 1px #004AAD;
+    color: #004AAD;
     border-radius: 8px;
     cursor: pointer;
     background-color: transparent;
@@ -37,6 +42,7 @@
 
 .game-id h2 {
     margin-top: 0;
+    color: white;
 }
 
 .game-id h4 {
@@ -51,10 +57,12 @@
     flex-wrap: wrap;
 }
 
+
 .game-id div div {
     display: flex;
     justify-content: space-between;
     width: 80px;
+    color: white;
 }
 
 .game-id div  button {
@@ -70,13 +78,17 @@
     border: solid 1px #3a3a3a;
 }
 
+.game-details p {
+    margin: 8px 0;
+}
+
 .acvmts-btn {
     background-color: transparent;
     padding: 10px;
     border-radius: 5px;
-    color: white;
+    color: #004AAD;
     font-weight: 900;
-    border: solid 1px #4e4e4e;
+    border: solid 1px #004AAD;
     cursor: pointer;
 }
 

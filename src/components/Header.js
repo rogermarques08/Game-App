@@ -1,7 +1,7 @@
 import { FaListUl } from 'react-icons/fa';
 import { Link, useHistory } from 'react-router-dom';
 import '../style/Header.css';
-import logo from '../style/images/logo.png';
+import box from '../style/images/box.png';
 
 function Header() {
   // const [userInfos, setUserInfos] = useState({});
@@ -16,14 +16,19 @@ function Header() {
   return (
     <header className="header-container">
       <Link to="/games">
-        <img src={ logo } alt="logo" className="bounce-in-top" />
+        <div className="logo">
+          <img src={ box } alt="logo" className="bounce-in-top" />
+          <span>GAME BOX</span>
+        </div>
       </Link>
       {/* <div className="user-infos">
         <p>{userInfos.userEmail}</p>
         <img src={ userInfos.userPicture } alt="user" />
       </div> */}
       <button type="button" onClick={ () => history.push('/list') }>
-        <FaListUl />
+        <span>
+          <FaListUl />
+        </span>
         {' '}
         Game List
       </button>

@@ -14,9 +14,9 @@ main {
     height: 35px;
     margin-bottom: 10px;
     font-size: 30px;
-    color: white;
+    color: #004AAD;
     background-color: transparent;
-    border: solid 1px rgb(129 129 129);
+    border: solid 1px #004AAD;
     border-radius: 10px;
 }
 
@@ -26,7 +26,7 @@ main {
 
 .buttons-container button:hover {
     cursor: pointer;
-    background-color: #23252c;
+    background-color: #1B1B1B;
 }
 
 .loader-container {

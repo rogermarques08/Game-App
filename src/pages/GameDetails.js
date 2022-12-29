@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
-import { FaListUl, FaPlaystation, FaWindows, FaXbox } from 'react-icons/fa';
-import { SiNintendoswitch } from 'react-icons/si';
+import { FaListUl } from 'react-icons/fa';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { useHistory, useParams } from 'react-router-dom';
 import getData from '../helpers/getData';
+import getIcon from '../helpers/getIcon';
 import '../style/GameDetails.css';
 
 function GameDetails() {
@@ -20,21 +20,6 @@ function GameDetails() {
 
   const seeAchievements = () => {
     history.push(`/achievements/${id}`);
-  };
-
-  const getIcon = (platform) => {
-    switch (platform) {
-    case 'Xbox':
-      return <FaXbox />;
-    case 'PC':
-      return <FaWindows />;
-    case 'PlayStation':
-      return <FaPlaystation />;
-    case 'Nintendo':
-      return <SiNintendoswitch />;
-    default:
-      break;
-    }
   };
 
   const addToList = () => {
@@ -141,7 +126,7 @@ function GameDetails() {
           </div>
         </div>
         <hr />
-        <div>
+        <div className="game-details">
           <h3>Game Info</h3>
           <p>
             Metacritic :

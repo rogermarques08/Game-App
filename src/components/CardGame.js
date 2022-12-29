@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
+
 import { Link } from 'react-router-dom';
+import getIcon from '../helpers/getIcon';
 import '../style/CardGame.css';
 
 function CardGame({ games }) {
@@ -20,10 +22,20 @@ function CardGame({ games }) {
               src={ game.background_image }
               alt={ game.name }
             />
-            <div>
-              <h2>{game.name}</h2>
+            <div className="game-info-container">
+              <div className="platforms">
+                {game.parent_platforms.map((item) => (
+                  <span key={ item.platform.name }>{getIcon(item.platform.name)}</span>
+                ))}
+              </div>
+              <h3>{game.name}</h3>
               <div className="game-info">
-                <p style={ getColor(game.rating) } className="rating">{game.rating}</p>
+                <span
+                  style={ getColor(game.rating) }
+                  className="rating"
+                >
+                  {game.rating}
+                </span>
                 <p>
                   {game.genres.slice(0, 2).map((item) => item.name).join()}
                 </p>

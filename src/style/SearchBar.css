@@ -15,20 +15,21 @@
 
 .searchbar-container input {
     border-radius: 10px;
-    border: solid 1px #464646;
+    border: solid 1px #004AAD;
     padding: 10px;
     width: 60vw;
     max-width: 450px;
-    background-color: #464646;
+    background-color: #1B1B1B;
     color: white;
     font-weight: 900;
 }
 
 .searchbar-container div span {
-    border: solid 1px #464646;
+    border: solid 1px #004AAD;
+    background-color:#1B1B1B;
     padding: 5px;
     border-radius: 5px;
-    color: white;
+    color: #004AAD;
     cursor: pointer;
     width: 30px;
     text-align: center;
@@ -36,13 +37,13 @@
 }
 
 .searchbar-container button {
-    background-color: #464646;
-    border: solid 1px #292929;
+    background-color:#1B1B1B;
+    border: solid 1px #004AAD;
     display: flex;
     align-items: center;
     gap:5px;
     border-radius: 5px;
-    color: white;
+    color: #004AAD;
     font-weight: 900;
     height: 30px;
     font-size: 15px;

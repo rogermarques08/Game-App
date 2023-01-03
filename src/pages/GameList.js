@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import CardGame from '../components/CardGame';
 import Header from '../components/Header';
+import '../style/GameList.css';
 
 function GameList() {
   const [list, setList] = useState([]);
@@ -13,7 +14,9 @@ function GameList() {
   return (
     <div>
       <Header />
-      <CardGame games={ list } />
+      <div className="list-container">
+        <CardGame games={ list } />
+      </div>
     </div>
   );
 }

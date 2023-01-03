@@ -1,7 +1,9 @@
+import Header from '../components/Header';
+
 function Profile() {
   return (
     <div>
-      <h1>profie</h1>
+      <Header />
     </div>
   );
 }

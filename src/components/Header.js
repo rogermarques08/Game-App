@@ -25,15 +25,17 @@ function Header() {
   return (
     <header className="header-container">
       <nav>
-        <div className="logo">
-          <img src={ box } alt="logo" className="bounce-in-top" />
-          <span>GAME BOX</span>
-        </div>
+        <Link to="/games" style={ { textDecoration: 'none' } }>
+          <div className="logo">
+            <img src={ box } alt="logo" className="bounce-in-top" />
+            <span>GAME BOX</span>
+          </div>
+        </Link>
         <input type="checkbox" id="check" />
         <label htmlFor="check" className="checkbtn">
           <span><AiOutlineUnorderedList /></span>
         </label>
-        <ul>
+        <ul className="scale-up-tr">
           <Link to="/games">
             <li>
               {' '}
@@ -55,7 +57,7 @@ function Header() {
               {' '}
               <AiOutlineUser />
               {' '}
-              Perfil
+              Profile
             </li>
           </Link>
           <Link to="/">

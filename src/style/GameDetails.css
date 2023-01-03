@@ -8,36 +8,28 @@
 }
 
 .header-details {
+    position: fixed;
+    top: 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     cursor: pointer;
-    position: absolute;
     margin-top: 10px;
+    z-index: 1;
+    height: 40px;
 }
 
 .header-details span {
     font-size: 25px;
-    color: #004AAD;
+    color: white;
     margin-left: 10px;
-}
-
-.header-details button {
-    border: solid 1px #004AAD;
-    color: #004AAD;
-    border-radius: 8px;
-    cursor: pointer;
-    background-color: transparent;
-    margin-right: 10px;
-    font-weight: 900;
-    display: flex;
-    align-items: center;
-    gap:5px;
 }
 
 .game-img{
   width: 100%;
   top: 0;
+  filter: brightness(0.6);
 }
 
 .game-id h2 {
@@ -80,6 +72,7 @@
 
 .game-details p {
     margin: 8px 0;
+    color: white;
 }
 
 .acvmts-btn {

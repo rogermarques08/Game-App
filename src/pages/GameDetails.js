@@ -1,9 +1,16 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/jsx-max-depth */
 import { useEffect, useState } from 'react';
-import { BiArrowBack } from 'react-icons/bi';
-import { FaListUl } from 'react-icons/fa';
+import {
+  AiOutlineHeart,
+  AiOutlineHome, AiOutlineUnorderedList,
+  AiOutlineUser
+} from 'react-icons/ai';
+import { BiArrowBack, BiLogOut } from 'react-icons/bi';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-import { useHistory, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import getData from '../helpers/getData';
 import getIcon from '../helpers/getIcon';
 import '../style/GameDetails.css';
@@ -94,12 +101,47 @@ function GameDetails() {
   return (
     <div className="scale-up-center">
       <header className="header-details">
-        <span><BiArrowBack onClick={ () => history.push('/games') } /></span>
-        <button type="button" onClick={ () => history.push('/list') }>
-          <FaListUl />
-          {' '}
-          Game List
-        </button>
+        <nav>
+          <span><BiArrowBack onClick={ () => history.push('/games') } /></span>
+          <input type="checkbox" id="check" />
+          <label htmlFor="check" className="checkbtn">
+            <span><AiOutlineUnorderedList /></span>
+          </label>
+          <ul className="scale-up-tr">
+            <Link to="/games">
+              <li>
+                {' '}
+                <AiOutlineHome />
+                {' '}
+                Home
+              </li>
+            </Link>
+            <Link to="/list">
+              <li>
+                {' '}
+                <AiOutlineHeart />
+                {' '}
+                Game list
+              </li>
+            </Link>
+            <Link to="/profile">
+              <li>
+                {' '}
+                <AiOutlineUser />
+                {' '}
+                Profile
+              </li>
+            </Link>
+            <Link to="/">
+              <li>
+                {' '}
+                <BiLogOut />
+                {' '}
+                Log Out
+              </li>
+            </Link>
+          </ul>
+        </nav>
       </header>
       <img src={ game.background_image } alt={ game.name } className="game-img" />
       <div className="game-details-container">

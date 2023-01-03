@@ -8,19 +8,24 @@ import {
   AiOutlineUser
 } from 'react-icons/ai';
 import { BiLogOut } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import '../style/Header.css';
 import box from '../style/images/box.png';
 
 function Header() {
   // const [userInfos, setUserInfos] = useState({});
 
-  // const history = useHistory();
+  const history = useHistory();
 
   // useEffect(() => {
   //   const getUserData = JSON.parse(localStorage.getItem('userEmail'));
   //   setUserInfos(getUserData);
   // }, []);
+
+  const logOut = () => {
+    localStorage.removeItem('userEmail');
+    history.push('/');
+  };
 
   return (
     <header className="header-container">
@@ -33,7 +38,7 @@ function Header() {
         </Link>
         <input type="checkbox" id="check" />
         <label htmlFor="check" className="checkbtn">
-          <span><AiOutlineUnorderedList /></span>
+          <span style={ { color: '#677def' } }><AiOutlineUnorderedList /></span>
         </label>
         <ul className="scale-up-tr">
           <Link to="/games">
@@ -60,14 +65,14 @@ function Header() {
               Profile
             </li>
           </Link>
-          <Link to="/">
-            <li>
+          <li>
+            <button type="button" onClick={ logOut }>
               {' '}
               <BiLogOut />
               {' '}
               Log Out
-            </li>
-          </Link>
+            </button>
+          </li>
         </ul>
       </nav>
     </header>

@@ -4,7 +4,7 @@
 }
 
 .game-details-container h3{
-    color:  white;
+    color:  #677def;
 }
 
 .header-details {
@@ -79,7 +79,7 @@
     background-color: transparent;
     padding: 10px;
     border-radius: 5px;
-    color: #004AAD;
+    color: #677def;
     font-weight: 900;
     border: solid 1px #004AAD;
     cursor: pointer;

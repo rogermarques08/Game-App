@@ -5,6 +5,7 @@ import GameDetails from './pages/GameDetails';
 import GameList from './pages/GameList';
 import Login from './pages/Login';
 import Main from './pages/Main';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/achievements/:id" component={ GameAchievements } />
       <Route path="/games" component={ Main } />
       <Route path="/list" component={ GameList } />
+      <Route path="/profile" component={ Profile } />
     </Switch>
   );
 }

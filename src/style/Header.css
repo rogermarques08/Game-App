@@ -1,44 +1,102 @@
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #1b1b1b;
-    height: 50px;
-    width: 100%;
-    border-bottom: 1px solid #004AAD;
+body {
+	font-family: montserrat;
 }
 
-.header-container a {
-    color: white;
-    text-decoration: none;
+nav {
+	background: #1B1B1B;
+	height: 60px;
+	width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 }
 
-.header-container button {
-    padding: 5px;
-    border: solid 1px #004AAD;
-    background-color: transparent;
-    color: #004AAD;
-    display: flex;
-    gap: 5px;
-    font-weight: 900;
-    border-radius: 5px;
-    margin-right: 10px;
-    cursor: pointer;
+nav ul {
+	float: right;
+	margin-right: 20px;
+        background-color: #1B1B1B;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 20px;
 }
 
-.header-container button:hover {
-    background-color: #202020;
+nav ul a {
+        text-decoration: none;
 }
-	
-/* .user-infos {
-    display: flex;
-    justify-content: space-around;
+
+nav ul li {
+	line-height: 80px;
+	margin: 0 5px;
+        color: white;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        gap:5px;
+        font-size: 17px;
 }
-.user-infos img {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-} */
+
+.checkbtn {
+	font-size: 30px;
+	color: white;
+	line-height: 80px;
+        margin: 10px 20px 0 0;
+	cursor: pointer;
+	display: none;
+}
+
+#check {
+	display: none;
+}
+
+@media (max-width: 858px){
+
+	.checkbtn {
+		display: block;
+	}
+
+        .header-container {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 1;
+                margin-bottom: 50px;
+        }
+
+	nav ul{
+		position: fixed;
+		width: 50vw;
+		height: 70%;
+		top: 44px;
+		right: -100%;
+		text-align: center;
+		transition: all .5s;
+                display: flex;
+                flex-direction: column;
+	}
+	nav ul li{
+		display: flex;
+                align-items: center;
+                gap: 10px;
+		margin: 50px 0;
+		line-height: 30px;
+                height: 40px;
+                margin: 20px 5px;
+	}
+	nav ul li a {
+		font-size: 20px;
+                text-decoration: none;
+	}
+	a:hover, a.active {
+		background: none;
+		color: #5434af;
+	}
+	#check:checked ~ ul {
+		right: 0;
+                margin-right: 0;
+	}
+}
+
 
 .logo {
     display: flex;

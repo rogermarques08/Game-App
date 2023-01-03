@@ -4,7 +4,7 @@
     align-items: center;
     flex-direction: column;
     gap: 15px;
-    margin: 25px 0;
+    margin-top: 40px;
 }
 
 .searchbar-container div {
@@ -53,4 +53,11 @@
 .searchbar-container button:hover,
 .searchbar-container div span:hover {
     background-color: #2e2e2e;
+}
+
+@media (max-width: 858px) { 
+    .searchbar-container {
+        margin-top: 80px;
+    }
+
 }

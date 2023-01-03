@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import CardGame from '../components/CardGame';
+import Header from '../components/Header';
 
 function GameList() {
   const [list, setList] = useState([]);
@@ -11,7 +12,7 @@ function GameList() {
 
   return (
     <div>
-      <h1>Game List</h1>
+      <Header />
       <CardGame games={ list } />
     </div>
   );

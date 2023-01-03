@@ -15,7 +15,7 @@
 .card-game {
     display: flex;
     flex-direction: column;
-    width: 145px;
+    width: 150px;
     height: auto;
     background-color: #1b1b1b;
     border-radius: 10px 10px;

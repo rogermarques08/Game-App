@@ -61,6 +61,10 @@ function Main() {
     getGames();
   }, [setGames]);
 
+  const teste = () => ({
+    teste: 'ok',
+  });
+
   if (loading) {
     return (
       <div className="loader-container">
@@ -95,7 +99,7 @@ function Main() {
         getGames={ getGames }
       />
       <main>
-        <CardGame games={ games } />
+        <CardGame games={ games } { ...teste() } />
         <div className="buttons-container">
           <button
             type="button"

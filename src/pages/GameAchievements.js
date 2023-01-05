@@ -1,8 +1,17 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable react/jsx-max-depth */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { useEffect, useState } from 'react';
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
-import { BiArrowBack } from 'react-icons/bi';
-import { FaListUl } from 'react-icons/fa';
-import { useHistory, useParams } from 'react-router-dom';
+import {
+  AiOutlineArrowLeft,
+  AiOutlineArrowRight,
+  AiOutlineHeart,
+  AiOutlineHome,
+  AiOutlineUnorderedList,
+  AiOutlineUser
+} from 'react-icons/ai';
+import { BiArrowBack, BiLogOut } from 'react-icons/bi';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import getData from '../helpers/getData';
 import '../style/GameAchievements.css';
 
@@ -61,16 +70,55 @@ function GameAchievements() {
 
   return (
     <div className="achievements-container">
-      <header className="header-details" style={ { position: 'unset' } }>
-        <span><BiArrowBack onClick={ () => history.push(`/game/${id}`) } /></span>
-        <button type="button" onClick={ () => history.push('/list') }>
-          <FaListUl />
-          {' '}
-          Game List
-        </button>
+      <header className="header-details">
+        <nav style={ { background: '#1B1B1B' } }>
+          <span
+            style={ { color: '#677def' } }
+          >
+            <BiArrowBack onClick={ () => history.push(`/game/${id}`) } />
+          </span>
+          <input type="checkbox" id="check" />
+          <label htmlFor="check" className="checkbtn">
+            <span style={ { color: '#677def' } }><AiOutlineUnorderedList /></span>
+          </label>
+          <ul className="scale-up-tr">
+            <Link to="/games">
+              <li>
+                {' '}
+                <AiOutlineHome />
+                {' '}
+                Home
+              </li>
+            </Link>
+            <Link to="/list">
+              <li>
+                {' '}
+                <AiOutlineHeart />
+                {' '}
+                Game list
+              </li>
+            </Link>
+            <Link to="/profile">
+              <li>
+                {' '}
+                <AiOutlineUser />
+                {' '}
+                Profile
+              </li>
+            </Link>
+            <Link to="/">
+              <li>
+                {' '}
+                <BiLogOut />
+                {' '}
+                Log Out
+              </li>
+            </Link>
+          </ul>
+        </nav>
       </header>
-      <h1>Achieviments</h1>
       <ul className="achievements-list">
+        <h1>Achieviments</h1>
         {achievements.map((item) => (
           <li key={ item.id } className="scale-up-center">
             <img src={ item.image } alt={ item.name } />

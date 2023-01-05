@@ -13,7 +13,6 @@ nav {
 
 nav ul {
 	margin-right: 20px;
-        /* background-color: #1B1B1B; */
         height: 100%;
         display: flex;
         align-items: center;
@@ -33,6 +32,8 @@ nav ul li {
         align-items: center;
         gap:5px;
         font-size: 17px;
+        color: #677def;
+
 }
 
 nav ul li button {
@@ -91,7 +92,6 @@ nav ul li button {
 		line-height: 30px;
                 height: 40px;
                 margin: 20px 5px;
-                color: #677def;
 	}
 	nav ul li a {
 		font-size: 20px;

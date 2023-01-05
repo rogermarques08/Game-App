@@ -1,18 +1,12 @@
+/* eslint-disable react/jsx-max-depth */
 import PropTypes from 'prop-types';
+import ReactStars from 'react-rating-stars-component';
 
 import { Link } from 'react-router-dom';
 import getIcon from '../helpers/getIcon';
 import '../style/CardGame.css';
 
 function CardGame({ games }) {
-  const getColor = (rating) => {
-    const goodRating = 4.20;
-    const mediumRating = 3.20;
-    if (rating > goodRating) return { color: 'green', border: 'solid 1px green' };
-    if (rating > mediumRating) return { color: 'yellow', border: 'solid 1px yellow' };
-    return { color: 'red', border: 'solid 1px red' };
-  };
-
   return (
     <div className="card-game-container">
       {games?.map((game, index) => (
@@ -30,12 +24,20 @@ function CardGame({ games }) {
               </div>
               <h3>{game.name}</h3>
               <div className="game-info">
-                <span
-                  style={ getColor(game.rating) }
-                  className="rating"
-                >
-                  {game.rating}
-                </span>
+                <div className="stars">
+                  <ReactStars
+                    count={ 5 }
+                    size={ 18 }
+                    color="gray"
+                    activeColor="white"
+                    edit={ false }
+                    value={ +game.rating }
+                    isHalf
+                  />
+                  <span className="rating">
+                    {game.rating}
+                  </span>
+                </div>
                 <p>
                   {game.genres.slice(0, 2).map((item) => item.name).join()}
                 </p>

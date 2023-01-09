@@ -1,3 +1,4 @@
+/* eslint-disable no-magic-numbers */
 /* eslint-disable max-lines */
 /* eslint-disable comma-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -15,6 +16,7 @@ import { Link, useHistory, useParams } from 'react-router-dom';
 import CardGame from '../components/CardGame';
 import getData from '../helpers/getData';
 import getIcon from '../helpers/getIcon';
+import { getNameStore, getStores } from '../helpers/getStores';
 import '../style/GameDetails.css';
 
 function GameDetails() {
@@ -24,6 +26,7 @@ function GameDetails() {
   const [platforms, setPlatforms] = useState([]);
   const [inList, setInList] = useState(false);
   const [gameSeries, setGameSeries] = useState([]);
+  const [stores, setGameStores] = useState([]);
 
   const { id } = useParams();
   const history = useHistory();
@@ -56,6 +59,7 @@ function GameDetails() {
     const gameUrl = `https://api.rawg.io/api/games/${id}?token&key=e338cac79cd8470c8b3c41797664aeb1`;
     const screenShotsUrl = `https://api.rawg.io/api/games/${id}/screenshots?token&key=e338cac79cd8470c8b3c41797664aeb1`;
     const sameSeriesUrl = `https://api.rawg.io/api/games/${id}/game-series?token&key=e338cac79cd8470c8b3c41797664aeb1`;
+    const storesUrl = `https://api.rawg.io/api/games/${id}/stores?token&key=e338cac79cd8470c8b3c41797664aeb1`;
 
     getData(gameUrl).then((gameData) => {
       setGame(gameData);
@@ -79,6 +83,14 @@ function GameDetails() {
 
     getData(sameSeriesUrl).then((gameDataSeries) => {
       setGameSeries(gameDataSeries.results);
+      setIsLoading(false);
+    });
+
+    getData(storesUrl).then((gameDataStores) => {
+      setGameStores(gameDataStores.results.filter((store) => store.store_id === 1
+      || store.store_id === 7
+      || store.store_id === 11
+      || store.store_id === 3));
       setIsLoading(false);
     });
   }, [id]);
@@ -245,6 +257,27 @@ function GameDetails() {
             ))}
           </Carousel>
           {/* Carousel : https://www.npmjs.com/package/react-responsive-carousel?activeTab=readme */}
+        </div>
+        <hr />
+        <div>
+          <h3>Stores</h3>
+          <div className="stores-container">
+            {stores.map((idStore) => (
+              <a
+                href={ idStore.url }
+                key={ idStore.store_id }
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>
+                  {getStores(idStore.store_id)}
+                  Buy on
+                  {' '}
+                  {getNameStore(idStore.store_id)}
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
         <hr />
         <div>

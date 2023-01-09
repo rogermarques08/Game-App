@@ -14,7 +14,7 @@ function GameList() {
   return (
     <div>
       <Header />
-      <div className="list-container">
+      <div className="list-container card-game-container ">
         <CardGame games={ list } />
       </div>
     </div>

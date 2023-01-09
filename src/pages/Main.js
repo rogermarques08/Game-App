@@ -99,7 +99,9 @@ function Main() {
         getGames={ getGames }
       />
       <main>
-        <CardGame games={ games } { ...teste() } />
+        <div className="card-game-container">
+          <CardGame games={ games } { ...teste() } />
+        </div>
         <div className="buttons-container">
           <button
             type="button"

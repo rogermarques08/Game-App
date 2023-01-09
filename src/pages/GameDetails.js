@@ -5,7 +5,7 @@
 /* eslint-disable react/jsx-max-depth */
 import { useEffect, useState } from 'react';
 import {
-  AiOutlineHeart,
+  AiFillHeart, AiOutlineHeart,
   AiOutlineHome, AiOutlineUnorderedList,
   AiOutlineUser
 } from 'react-icons/ai';
@@ -178,12 +178,11 @@ function GameDetails() {
               ))}
             </div>
             <button
+              className="fav"
               type="button"
               onClick={ addToList }
-              style={ inList
-                ? { border: 'solid 1px red' } : { border: 'solid 1px green' } }
             >
-              {inList ? 'Remove game to list' : 'Add game to list' }
+              {inList ? <AiFillHeart /> : <AiOutlineHeart /> }
 
             </button>
           </div>

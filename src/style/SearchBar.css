@@ -1,63 +1,62 @@
-.searchbar-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 40px;
+.searchbar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 40px;
 }
 
 .searchbar-container div {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .searchbar-container input {
-    border-radius: 10px;
-    border: solid 1px #004AAD;
-    padding: 10px;
-    width: 60vw;
-    max-width: 450px;
-    background-color: #1B1B1B;
-    color: white;
-    font-weight: 900;
+  border-radius: 10px;
+  border: solid 1px #004aad;
+  padding: 10px;
+  width: 60vw;
+  max-width: 450px;
+  background-color: #1b1b1b;
+  color: white;
+  font-weight: 900;
 }
 
 .searchbar-container div span {
-    border: solid 1px #004AAD;
-    background-color:#1B1B1B;
-    padding: 5px;
-    border-radius: 5px;
-    color: #677def;
-    cursor: pointer;
-    width: 30px;
-    text-align: center;
-    font-size: 20px;
+  border: solid 1px #004aad;
+  background-color: #1b1b1b;
+  padding: 5px;
+  border-radius: 5px;
+  color: #677def;
+  cursor: pointer;
+  width: 30px;
+  text-align: center;
+  font-size: 20px;
 }
 
 .searchbar-container button {
-    background-color:#1B1B1B;
-    border: solid 1px #004AAD;
-    display: flex;
-    align-items: center;
-    gap:5px;
-    border-radius: 5px;
-    color: #677def;
-    font-weight: 900;
-    height: 30px;
-    font-size: 15px;
-    cursor: pointer;
+  background-color: #1b1b1b;
+  border: solid 1px #004aad;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 5px;
+  color: #677def;
+  font-weight: 900;
+  height: 30px;
+  font-size: 15px;
+  cursor: pointer;
 }
 
 .searchbar-container button:hover,
 .searchbar-container div span:hover {
-    background-color: #2e2e2e;
+  background-color: #2e2e2e;
 }
 
-@media (max-width: 858px) { 
-    .searchbar-container {
-        margin-top: 80px;
-    }
-
+@media (max-width: 858px) {
+  .searchbar-container {
+    margin-top: 80px;
+  }
 }

@@ -1,74 +1,72 @@
 .form-login-container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 100vw;     
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
 }
 
 .form-login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #1b1b1b;
-    max-width: 500px;
-    height: auto;
-    width: 80vw;
-    border-radius: 25px;
-    gap: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1b1b1b;
+  max-width: 500px;
+  height: auto;
+  width: 80vw;
+  border-radius: 25px;
+  gap: 25px;
 }
 
 .form-login img {
-    margin-top: 10px;
-    width: 90%;
-    max-width: 300px;
+  margin-top: 10px;
+  width: 90%;
+  max-width: 300px;
 }
 
-.inputs-container  {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin-top: -15px;
-    width: 100%;
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: -15px;
+  width: 100%;
 }
 
 .inputs-container input {
-    padding: 8px;
-    border-radius: 6px;
-    border: none;
-    height: 20px;
-    width: 75%;
-    background-color: #383838;
-    color: white;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  height: 20px;
+  width: 75%;
+  background-color: #383838;
+  color: white;
 }
 
 .inputs-container button {
-    width: 120px;
-    height: 33px;
-    border-radius: 5px;
-    border: none;
-    color: white;
-    font-weight: 900;
-    background-color: #292929;
-    cursor: pointer;
-    margin-bottom: 10px;
-} 
+  width: 120px;
+  height: 33px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-weight: 900;
+  background-color: #292929;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
 
 .inputs-container button:disabled {
-    opacity: 0.3;
-    transition: 0.5s;
+  opacity: 0.3;
+  transition: 0.5s;
 }
 
 .inputs-container button:enabled {
-    opacity: 0.5s;
-    transition: 1s;
+  opacity: 0.5s;
+  transition: 1s;
 }
 
 .inputs-container button:hover {
-    background-color: #383838;
+  background-color: #383838;
 }
-
-

@@ -128,7 +128,7 @@ function GameDetails() {
           <label htmlFor="check" className="checkbtn">
             <span><AiOutlineUnorderedList /></span>
           </label>
-          <ul className="scale-up-tr">
+          <ul className="scale-up-tr navbar-dtl">
             <Link to="/games">
               <li>
                 {' '}

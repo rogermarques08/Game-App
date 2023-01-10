@@ -97,7 +97,7 @@
 
 .stores-container {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   margin-bottom: 20px;
@@ -117,8 +117,28 @@
   gap: 10px;
   height: 30px;
   padding: 5px;
-  width: 172px;
+  width: 120px;
   margin-top: 10px;
+}
+
+.stores-container span svg {
+  font-size: 30px;
+}
+
+@media only screen and (min-width: 859px) {
+  .navbar-dtl a li {
+    color: white;
+  }
+}
+
+@media only screen and (min-width: 950px) {
+  .navbar-dtl a li {
+    color: white;
+  }
+
+  .game-img {
+    height: 85vh;
+  }
 }
 
 /* ----------------------------------------------

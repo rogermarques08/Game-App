@@ -40,7 +40,7 @@ function Header() {
         <label htmlFor="check" className="checkbtn">
           <span style={ { color: '#677def' } }><AiOutlineUnorderedList /></span>
         </label>
-        <ul className="scale-up-tr">
+        <ul className="scale-up-tr navbar">
           <Link to="/games">
             <li>
               {' '}

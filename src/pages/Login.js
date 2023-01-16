@@ -37,7 +37,7 @@ function Login({ history }) {
   const saveUserData = () => {
     localStorage.setItem('userEmail', JSON.stringify({
       userEmail: userData.email,
-      userPicture: gravatar.url(userData.email, { protocol: 'https' }),
+      userPicture: gravatar.url(userData.email, { protocol: 'https', s: '500' }),
     }));
     history.push('/games');
   };

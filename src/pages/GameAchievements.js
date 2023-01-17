@@ -119,17 +119,18 @@ function GameAchievements() {
       </header>
       <ul className="achievements-list">
         <h1>Achieviments</h1>
-        {achievements.map((item) => (
-          <li key={ item.id } className="scale-up-center">
-            <img src={ item.image } alt={ item.name } />
-            <div>
-              <p className="acvmts-title">{item.name}</p>
-              <p className="desc">{item.description}</p>
-              <p className="percent">{`${item.percent}% of players unlock`}</p>
-            </div>
-          </li>
-
-        ))}
+        <div className="acvmts">
+          {achievements.map((item) => (
+            <li key={ item.id } className="scale-up-center">
+              <img src={ item.image } alt={ item.name } />
+              <div className="achievements-infos">
+                <p className="acvmts-title">{item.name}</p>
+                <p className="desc">{item.description}</p>
+                <p className="percent">{`${item.percent}% of players unlock`}</p>
+              </div>
+            </li>
+          ))}
+        </div>
       </ul>
       <div className="buttons-container">
         <button

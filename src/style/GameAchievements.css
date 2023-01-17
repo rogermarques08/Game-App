@@ -16,12 +16,23 @@
   text-align: center;
 }
 
+.acvmts {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
 .achievements-list li {
   display: flex;
   align-items: center;
   gap: 15px;
   font-size: 14px;
   border-bottom: solid 1px gray;
+}
+
+.achievements-infos {
+  width: 210px;
 }
 
 .achievements-list img {

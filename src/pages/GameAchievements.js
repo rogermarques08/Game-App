@@ -12,6 +12,7 @@ import {
 } from 'react-icons/ai';
 import { BiArrowBack, BiLogOut } from 'react-icons/bi';
 import { Link, useHistory, useParams } from 'react-router-dom';
+import Footer from '../components/Footer';
 import getData from '../helpers/getData';
 import '../style/GameAchievements.css';
 
@@ -148,6 +149,7 @@ function GameAchievements() {
           <AiOutlineArrowRight />
         </button>
       </div>
+      <Footer />
     </div>
   );
 }

@@ -14,6 +14,7 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Link, useHistory, useParams } from 'react-router-dom';
 import CardGame from '../components/CardGame';
+import Footer from '../components/Footer';
 import getData from '../helpers/getData';
 import getIcon from '../helpers/getIcon';
 import { getNameStore, getStores } from '../helpers/getStores';
@@ -285,6 +286,8 @@ function GameDetails() {
             <CardGame games={ gameSeries } />
           </div>
         </div>
+        <hr />
+        <Footer />
       </div>
     </div>
 

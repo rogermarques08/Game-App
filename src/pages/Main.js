@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import CardGame from '../components/CardGame';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
 import getData from '../helpers/getData';
@@ -118,6 +119,7 @@ function Main() {
             <AiOutlineArrowRight />
           </button>
         </div>
+        <Footer />
       </main>
     </div>
   );
